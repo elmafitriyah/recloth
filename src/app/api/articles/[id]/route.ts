@@ -1,6 +1,12 @@
-export async function GET(request: Request, { params }: { params: { id: string } }) {
-    const { id } = params;
+import { NextRequest, NextResponse } from 'next/server';
 
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  const { id } = params;
+
+  try {
     const articles = [
         {
             "id": "0fe1810d-1d9b-4917-ab29-d1529b093707",
@@ -177,10 +183,15 @@ export async function GET(request: Request, { params }: { params: { id: string }
     const article = articles.find((p) => p.id === id);
 
     if (article) {
-        const imageUrl = `http://localhost:3000/images/${article.image}.png`; 
-
-        return new Response(JSON.stringify({ ...article, imageUrl }), { status: 200 });
+      const imageUrl = `http://localhost:3000/images/${article.image}.png`; 
+      return NextResponse.json({ ...article, imageUrl }, { status: 200 });
     } else {
-        return new Response(JSON.stringify({ error: "article not found" }), { status: 404 });
+      return NextResponse.json({ error: "article not found" }, { status: 404 });
     }
+  } catch (error) {
+    return NextResponse.json(
+      { error: 'An error occurred while fetching the article' },
+      { status: 500 }
+    );
+  }
 }

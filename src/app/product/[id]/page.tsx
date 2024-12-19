@@ -64,7 +64,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                 <Image src="/image/backLeft.svg" alt="back" width={22} height={22} style={{ marginLeft: '3%', gap: '11px' }} />
                 <h1 style={{fontSize:'20px',fontWeight:'bold', width:'100%'}}>{product.Nama_Product}</h1>
             </button>
-
+git remote add origin
                 {product.produk_img && (
                     <img
                         src={`https://tech-class.datacore.machinevision.global/assets/${product.produk_img}`}
