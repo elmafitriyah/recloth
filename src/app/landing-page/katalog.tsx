@@ -69,15 +69,15 @@ export default function Katalog() {
     return (
         <>
             <div className="p-4">
-                <h1 className="text-2xl font-bold mb-4">
+                <h1 className="text-2xl font-bold mb-4" style={{margin:'2% 0% 2% 2%'}}>
                     <span className="inline-block align-middle">Katalog Produk</span>
                     <svg
                         className="inline-block align-middle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
                 </h1>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
                     {products.length > 0 ? (
                         products.slice(0, 8).map((product, index) => (
-                            <div key={index} onClick={() => handleSelect(product)} style={{ cursor: 'pointer' }}>
+                            <div key={index} className="p-1" onClick={() => handleSelect(product)} style={{ cursor: 'pointer' }}>
                                 <ProductCard
                                     nama_product={product.Nama_Product}
                                     harga={product.harga}

@@ -23,22 +23,24 @@ const Content: React.FC = () => {
                         <h1 style={{ fontSize: '85px', fontFamily: 'Jaldi', fontWeight: 700 }}>MANAGE</h1>
                         <h1 style={{ fontSize: '85px', fontFamily: 'Jaldi', fontWeight: 700, marginTop: '-8%' }}>USED</h1>
                         <h1 style={{ fontSize: '85px', fontFamily: 'Jaldi', fontWeight: 700, marginTop: '-8%' }}>CLOTHES</h1>
-                        <h6 style={{ fontSize: '19px', fontFamily: 'Jaldi', fontWeight: 400 }}>Recycle your clothes to reduce clothing waste</h6>
-                        <div className='button' style={{ marginTop: '5%' }}>
+                        <h6 className="text-lg md:text-xl font-normal mt-4">
+                            Recycle your clothes to reduce clothing waste
+                        </h6>
+                        <div className="button mt-5 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
                             <Link href="/signup">
-                                <button style={{ backgroundColor: '#F5AE06', padding: '8px 31px', borderRadius: '8px', border: '1px solid black', marginRight: '3%' }}>
+                                <button className="bg-[#F5AE06] text-black px-6 py-2 rounded border border-black">
                                     Sign Up
                                 </button>
                             </Link>
                             <Link href="./login">
-                                <button style={{ backgroundColor: 'white', padding: '8px 37px', borderRadius: '8px', border: '1px solid black' }}>
+                                <button className="bg-white border border-black px-6 py-2 rounded">
                                     Log In
                                 </button>
                             </Link>
                         </div>
                     </div>
                 </div>
-                <div className='Right' style={{width:'50%', marginLeft: '15%'}}>
+                <div className='className="md:w-1/2 p-4"' style={{ marginLeft: '15%'}}>
                 <Image src="./image/vector2.svg" width={600} height={600} alt='vector'/>
                 </div>
             </div>

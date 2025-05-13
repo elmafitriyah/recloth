@@ -32,8 +32,6 @@ export default function Article() {
         }
 
         const result = await response.json();
-        console.log(result.data);
-
         const baseUrl = "https://tech-class.datacore.machinevision.global/assets/";
 
         const articlesWithValidImages = result.data.slice(0, 6).map((article: any) => {
@@ -56,18 +54,18 @@ export default function Article() {
     fetchData();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <p className="text-center">Loading...</p>;
+  if (error) return <p className="text-center">Error: {error}</p>;
 
   return (
-    <div id="konten" className="konten" style={{ backgroundColor: '#F5AE06', width: '100%', height: '820px' }}>
-      <div className="text-center" style={{ fontFamily: 'Jaldi', fontSize: '28px', fontWeight: 700, paddingTop: '3%', paddingBottom: '2%' }}>
+    <div id="konten" className="konten bg-[#F5AE06] w-full py-8">
+      <div className="text-center" style={{ fontFamily: 'Jaldi', fontSize: '28px', fontWeight: 700 }}>
         <h1>Jelajahi konten limbah <br /> pakaian paling populer</h1>             
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" style={{ margin: '0% 5% 5% 5%' }}>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-5">
         {articles.length > 0 ? (
-          articles.map((article, index) => (
-            <Link key={index} href={`/article/${article.id}`} passHref>
+          articles.map((article) => (
+            <Link key={article.id} href={`/article/${article.id}`} passHref>
               <Card
                 judul_konten={article.judul_konten}
                 image={article.image}
@@ -75,7 +73,7 @@ export default function Article() {
             </Link>
           ))
         ) : (
-          <p>Tidak ada artikel terbaru</p>
+          <p className="text-center">Tidak ada artikel terbaru</p>
         )}
       </div>
     </div>
